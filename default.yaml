@@ -1,0 +1,8 @@
+ApplicationInfo:
+  Name: "Imager"
+  Version: "1.0.0-alpha"
+  Description: "A Qt based photography cross-platform application."
+  License: "MIT"
+UserConfigs:
+  LinuxSavingPath: "$(HOME)/Pictures/Imager"
+  WindowsSavingPath: "$(HOME)/Pictures/Imager"

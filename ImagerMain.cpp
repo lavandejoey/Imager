@@ -10,18 +10,19 @@
 #include <QFile>
 #include <QDir>
 
-void initImager(const QString &qstrAppName);
+#include "Configs.h"
+
 
 int main(int argc, char *argv[]) {
     QApplication qappImager(argc, argv);
-    QString qstrAppName = "Imager";
 
     // Initialize the application
-    initImager(qstrAppName);
+    Configs configs;
+    initImager(configs::mqstrAppName);
 
     // Create the main window
     QMainWindow qmwinMainWindow;
-    qmwinMainWindow.setWindowTitle(qstrAppName);
+    qmwinMainWindow.setWindowTitle(configs::mqstrAppName);
     qmwinMainWindow.resize(800, 600);
 
     // Create a central widget for the main window
@@ -72,25 +73,3 @@ int main(int argc, char *argv[]) {
     return QApplication::exec();
 }
 
-void initImager(const QString &qstrAppName) {
-    /// For the first time, init with default configs.
-    // Get the application's configuration directory
-    QString configDir = QCoreApplication::applicationDirPath() + "/config/";
-
-    // Construct the full path to the config file
-    QString configFile = configDir + qstrAppName + ".config";
-
-    // Check if the config file exists
-    QFile file(configFile);
-    if (file.exists()) {
-        // Config file exists, load and apply settings
-        // You can implement this part to load and apply the configuration
-        // settings from the configFile.
-        // Example: loadConfigSettings(configFile);
-    } else {
-        // Config file does not exist, initialize with default settings
-        // You can implement this part to create and initialize the
-        // default configuration settings for the application.
-        // Example: createDefaultConfig(appName, configFile);
-    }
-}

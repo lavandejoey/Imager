@@ -21,7 +21,9 @@ find_package(Qt5 COMPONENTS
         REQUIRED)
 
 
-add_executable(Imager ImagerMain.cpp)
+add_executable(Imager ImagerMain.cpp
+        Configs.cpp
+        Configs.h)
 target_link_libraries(Imager
         Qt5::Core
         Qt5::Gui
